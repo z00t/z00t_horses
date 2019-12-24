@@ -21,6 +21,7 @@ Commands
 /defaulthorse [name] - Set's the horse you want to be able to summon
 
 /spawnhorse = Command version of whistle
+
 /dh - Command version of "Flee"
 
 
