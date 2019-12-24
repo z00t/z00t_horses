@@ -26,7 +26,7 @@ Commands
 
 Usage
 --------
-After registering and setting default horse, you can whistle to summon. Horse will spawn behind you some distance and run close to your position. Whistling while the horse is already summoned will have it follow you until it reaches you. You can despawn the horse by targetting it and pressing "F".
+After registering and setting default horse, you can whistle to summon. Horse will spawn behind you some distance and run close to your position. Whistling while the horse is already summoned will have it follow you until it reaches you. You can despawn the horse by focus-targetting it (Hold right-click while facing it) and pressing "F".
 
 
 Config
