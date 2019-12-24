@@ -96,20 +96,22 @@ function newVeh(vehType, id)
 	local currentHorse = GetEntityModel(GetMount(playerPed))
 	local inPut1 = ""
 	local inPut2 = ""
-	Citizen.CreateThread(function()
-		AddTextEntry('FMMC_MPM_NA', "Name your horse:")
-		DisplayOnscreenKeyboard(1, "FMMC_MPM_NA", "", "Name", "", "", "", 30)
-		while (UpdateOnscreenKeyboard() == 0) do
-			DisableAllControlActions(0);
-			Citizen.Wait(0);
-		end
-		if (GetOnscreenKeyboardResult()) then
-			inPut1 = GetOnscreenKeyboardResult()
-			print('Horse Hash?', currentHorse, inPut1)
-	TriggerServerEvent('z00thorses:newVehicle', currentHorse, vehType, inPut1, id)
-		end
+	if currentHorse ~= nil then
+		Citizen.CreateThread(function()
+			AddTextEntry('FMMC_MPM_NA', "Name your horse:")
+			DisplayOnscreenKeyboard(1, "FMMC_MPM_NA", "", "Name", "", "", "", 30)
+			while (UpdateOnscreenKeyboard() == 0) do
+				DisableAllControlActions(0);
+				Citizen.Wait(0);
+			end
+			if (GetOnscreenKeyboardResult()) then
+				inPut1 = GetOnscreenKeyboardResult()
+				print('Horse Hash?', currentHorse, inPut1)
+		TriggerServerEvent('z00thorses:newVehicle', currentHorse, vehType, inPut1, id)
+			end
 	
-	end)
+		end)
+	end
 
 end
 
