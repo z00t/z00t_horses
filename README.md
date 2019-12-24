@@ -1,5 +1,5 @@
 # z00t_horses
-A Stables Manager for RedM
+A Stables Manager for RedEM
 
 * Place in resources folder
 * import stables.sql to your redem database
