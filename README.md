@@ -41,4 +41,6 @@ Features to come
 * Stable Locations & Interaction
 * Saddles, Accessories, and Horse Customization
 * Saddles and Accessories as inventory items (using Redem_inventory) with weight value on both player and horse (affects speed)
+* Transfer/Sell Horse
+* Horse Experience/Bonding
 * And more!
