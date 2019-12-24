@@ -27,7 +27,7 @@ Config.StableSlots - Sets the amount of stable slots per character.
 
 Disclaimer
 ------------
-This is very much a WIP, and more of a proof of concept to get some code snippets out and available. The code atm is quite patchwork, and I thank all in the RedM and Redem_roleplay communities for their contributions and hard work. Merry Christmas all!
+This is very much a WIP, and more of a proof of concept/admin tool to get some code snippets out and available. The code atm is quite patchwork, and I thank all in the RedM and Redem_roleplay communities for their contributions and hard work. Merry Christmas all!
 
 
 Known Issues
