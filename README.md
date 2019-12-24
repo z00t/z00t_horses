@@ -37,7 +37,7 @@ Known Issues
 
 Features to come
 -----------------
-Menu
-Stable Locations & Interaction
-Saddles, Accessories, and Horse Customization
-Saddles and Accessories as inventory items (using Redem_inventory) with weight value on both player and horse (affects speed)
+-- Menu
+-- Stable Locations & Interaction
+-- Saddles, Accessories, and Horse Customization
+-- Saddles and Accessories as inventory items (using Redem_inventory) with weight value on both player and horse (affects speed)
