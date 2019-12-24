@@ -1,8 +1,17 @@
 # z00t_horses
 A Stables Manager for RedM
 
-Place in resources folder
-add ensure z00t_horses to server.cfg
+* Place in resources folder
+* import stables.sql to your redem database
+* add ensure z00t_horses to server.cfg
+
+Requirements
+-------------
+* RedEM, https://github.com/kanersps/redem
+* RedEM: RP, https://github.com/RedEM-RP/redem_roleplay
+* MySQL-Async, https://github.com/amakuu/mysql-async-temporary
+* esplugin_mysql, https://github.com/RedEM-RP/esplugin_mysql
+* RedEM: RP Identity, https://github.com/RedEM-RP/redemrp_identity
 
 Commands
 ----------
