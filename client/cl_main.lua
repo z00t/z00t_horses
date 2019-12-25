@@ -20,10 +20,13 @@ RegisterCommand('dh', function(source, args, rawCommand)
 end)
 
 RegisterCommand('reghorse', function(source, args, rawCommand)
-	if args[1] ~=nil then
+	local isMounted = IsPedOnMount(playerPed)
+	if args[1] ~=nil and isMounted then
 		newVeh('horse', args[1])
-	else
+	elseif isMounted then
 		newVeh('horse')
+	else
+		print('Not mounted!')
 	end
     
 end)
