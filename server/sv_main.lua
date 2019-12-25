@@ -7,8 +7,9 @@ local _source = source
 			--print(identifier)
 			
 		MySQL.Async.fetchAll('SELECT * FROM stables WHERE `identifier`=@identifier AND `charid`=@charid AND `type`=@horses AND `default`=1;', {identifier = identifier, charid = charid, horses = 'horse'}, function(horses)
-		print("Horse:", horses[1].id, "Name: ", horses[1].name)
-		if horses[1] then
+		
+		if horses[1] ~= nil then
+			print("Horse:", horses[1].id, "Name: ", horses[1].name)
 			local name = horses[1].name
 			local id = horses[1].id
 			if horses[1].stabled then
@@ -63,6 +64,9 @@ local _id = id
 		print('Init:', nChk)
 		for _ in pairs(horses) do count = count + 1 end
 		if count < Config.StableSlots then
+		 if horses[1] == nil then
+			nChk = true
+		 else
 		  for i = 1, #horses do 
 			if _vehName == horses[i].name then
 				nChk = false
@@ -72,6 +76,7 @@ local _id = id
 				print('Post', _vehName, horses[i].name, nChk)
 			end
 		  end
+		 end
 		  if nChk then		
 			MySQL.Async.execute('INSERT INTO stables (`identifier`, `charid`, `vehicles`, `name`, `type`) VALUES (@identifier, @charid, @vehicles, @name, @kind);',
 			{
@@ -89,6 +94,7 @@ local _id = id
 		else
 			print(_source, "Stable slot limit reached!")
 		end
+		
 		end)
 	end) 
 end)
