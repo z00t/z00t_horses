@@ -76,6 +76,7 @@ local _id = id
 				print('Post', _vehName, horses[i].name, nChk)
 			end
 		  end
+		 end
 		  if nChk then		
 			MySQL.Async.execute('INSERT INTO stables (`identifier`, `charid`, `vehicles`, `name`, `type`) VALUES (@identifier, @charid, @vehicles, @name, @kind);',
 			{
@@ -92,7 +93,6 @@ local _id = id
 		  end
 		else
 			print(_source, "Stable slot limit reached!")
-		 end
 		end
 		
 		end)
