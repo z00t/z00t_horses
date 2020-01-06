@@ -1,25 +1,25 @@
 local myHorse = {0, 0, 0, 0}
 local playerPed = PlayerPedId()
 
-RegisterCommand('spawnhorse', function(source, args, rawCommand)
+RegisterCommand('spawnhorse', function(args, rawCommand)
 
 	checkHorse()
     
 end)
 
-RegisterCommand('flee', function(source, args, rawCommand)
+RegisterCommand('flee', function(args, rawCommand)
 
 	fleeHorse()
     
 end)
 
-RegisterCommand('dh', function(source, args, rawCommand)
+RegisterCommand('dh', function(args, rawCommand)
 
 	delHorse()
     
 end)
 
-RegisterCommand('reghorse', function(source, args, rawCommand)
+RegisterCommand('reghorse', function(args, rawCommand)
 	local isMounted = IsPedOnMount(playerPed)
 	if args[1] ~=nil and isMounted then
 		newVeh('horse', args[1])
@@ -31,7 +31,7 @@ RegisterCommand('reghorse', function(source, args, rawCommand)
     
 end)
 
-RegisterCommand('defaulthorse', function(source, args, rawCommand)
+RegisterCommand('defaulthorse', function(args, rawCommand)
 
 	defHorse(args[1])
     
