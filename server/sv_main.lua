@@ -35,9 +35,15 @@ local _id = id
 		local charid = user.getSessionVar("charid")
 			--print(identifier)
 			
-		MySQL.Async.execute("UPDATE stables SET `stabled`=1 WHERE id=@id", {id = _id}, function(done)
+		MySQL.Async.execute("UPDATE stables SET `stabled`=1 WHERE id=@id", {id = _id}, function(rowsChanged)
+		if rowsChanged == 0 then
+			TriggerClientEvent("redemrp_notification:start", _source, "ERROR: Horse not stabled!", 3, "error")
+		else
+			TriggerClientEvent("redemrp_notification:start", _source, "Horse stabled!", 3, "success")
+		end
 		end)
 		print("Horse ", _id, " stabled!")
+		
 	end)
 end)
 
@@ -71,6 +77,7 @@ local _id = id
 			if _vehName == horses[i].name then
 				nChk = false
 				print('Post', _vehName, horses[i].name, nChk)
+				break
 			else
 				nChk = true
 				print('Post', _vehName, horses[i].name, nChk)
@@ -88,11 +95,15 @@ local _id = id
 			}, function(rowsChanged)
 			end)
 			print("Vehicle", _vehName, "registered!")
+			TriggerClientEvent("redemrp_notification:start", _source, _type .. " " .. _vehName .. " Registered!", 3, "success")
+			TriggerClientEvent("z00thorses:delMount", _source)
 		  else
 			print("Name already in use!")
+			TriggerClientEvent("redemrp_notification:start", _source, "Name already in use!", 3, "error")
 		  end
 		else
 			print(_source, "Stable slot limit reached!")
+			TriggerClientEvent("redemrp_notification:start", _source, "Stable slot limit reached!", 3, "error")
 		end
 		
 		end)
@@ -111,7 +122,12 @@ AddEventHandler('z00thorses:defVeh', function(name)
 		MySQL.Async.execute("UPDATE stables SET `default`=0 WHERE `identifier`=@identifier AND `charid`=@charid AND `type`=@horses AND `default`=1", {identifier = identifier, charid = charid, horses = 'horse'}, function(done)
 		end)
 			
-		MySQL.Async.execute("UPDATE stables SET `default`=1 WHERE `identifier`=@identifier AND `charid`=@charid AND `name`=@name AND `type`=@horses", {identifier = identifier, charid = charid, name = _name, horses = 'horse'}, function(done)
+		MySQL.Async.execute("UPDATE stables SET `default`=1 WHERE `identifier`=@identifier AND `charid`=@charid AND `name`=@name AND `type`=@horses", {identifier = identifier, charid = charid, name = _name, horses = 'horse'}, function(rowsChanged)
+		if rowsChanged == 0 then
+			TriggerClientEvent("redemrp_notification:start", _source, "Setting default horse failed!", 3, "error")
+		else
+			TriggerClientEvent("redemrp_notification:start", _source, _name .. " set to default!", 3, "error")
+		end
 		end)
 		print(_source, "set vehicle", name, "as a default!")
 	end)
